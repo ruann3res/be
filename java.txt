@@ -1,0 +1,68 @@
+be-spring-users-cqrs-srv/
+├── pom.xml
+├── Dockerfile
+├── docker-compose.yml
+├── README.md
+│
+└── src/
+    ├── main/
+    │   ├── java/com/example/users/
+    │   │   ├── UsersApplication.java
+    │   │   │
+    │   │   ├── core/
+    │   │   │   ├── domain/
+    │   │   │   │   ├── entities/
+    │   │   │   │   │   └── User.java
+    │   │   │   │   ├── valueobjects/
+    │   │   │   │   │   └── Email.java
+    │   │   │   │   ├── events/
+    │   │   │   │   │   └── UserCreatedEvent.java
+    │   │   │   │   └── exceptions/
+    │   │   │   │       └── UserNotFoundException.java
+    │   │   │   │
+    │   │   │   └── application/
+    │   │   │       ├── commands/
+    │   │   │       │   └── createuser/
+    │   │   │       │       ├── CreateUserCommand.java
+    │   │   │       │       └── CreateUserHandler.java
+    │   │   │       ├── queries/
+    │   │   │       │   ├── getuser/
+    │   │   │       │   │   ├── GetUserQuery.java
+    │   │   │       │   │   └── GetUserHandler.java
+    │   │   │       │   └── listusers/
+    │   │   │       │       ├── ListUsersQuery.java
+    │   │   │       │       └── ListUsersHandler.java
+    │   │   │       └── ports/
+    │   │   │           └── out/
+    │   │   │               ├── UserCommandRepository.java
+    │   │   │               └── UserQueryRepository.java
+    │   │   │
+    │   │   ├── infrastructure/
+    │   │   │   ├── adapters/
+    │   │   │   │   ├── in/
+    │   │   │   │   │   └── rest/
+    │   │   │   │   │       ├── UserController.java
+    │   │   │   │   │       ├── requests/
+    │   │   │   │   │       └── responses/
+    │   │   │   │   └── out/
+    │   │   │   │       └── persistence/
+    │   │   │   │           ├── UserJpaEntity.java
+    │   │   │   │           ├── SpringDataUserRepository.java
+    │   │   │   │           ├── UserPersistenceAdapter.java
+    │   │   │   │           └── UserMapper.java
+    │   │   │   └── config/
+    │   │   │       └── ApplicationConfig.java
+    │   │   │
+    │   │   └── shared/
+    │   │       └── exceptions/
+    │   │           └── GlobalExceptionHandler.java
+    │   │
+    │   └── resources/
+    │       ├── application.yml
+    │       └── db/migration/
+    │           └── V1__create_users.sql
+    │
+    └── test/
+        └── java/com/example/users/
+            ├── core/
+            └── infrastructure/
